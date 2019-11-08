@@ -3,3 +3,4 @@ DS.store
 .eny.py
 env.py
 __pycache__
+*.csv
