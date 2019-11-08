@@ -28,10 +28,9 @@ ON (sq1.parcelid=p_17.parcelid and sq1.tdate = p_17.transactiondate )) sq2
 USING (parcelid)
 WHERE (latitude IS NOT NULL AND longitude IS NOT NULL)
 AND properties_2017.propertylandusetypeid NOT IN (31, 47,246, 247, 248, 263, 265, 267, 290, 291)
-And properties_2017.unitcnt <= 1
-and (properties_2017.bathroomcnt > 0)
-And (properties_2017.bedroomcnt > 0)
-;''', url)
+and properties_2017.unitcnt <= 1
+and (properties_2017.bathroomcnt > 0) 
+and (properties_2017.bedroomcnt > 0);''', url)
     return zillow_data
 acquire_zillow()
 
