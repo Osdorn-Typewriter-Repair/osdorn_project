@@ -31,9 +31,7 @@ AND properties_2017.propertylandusetypeid NOT IN (31, 47,246, 247, 248, 263, 265
 And properties_2017.unitcnt <= 1
 and (properties_2017.bathroomcnt > 0)
 And (properties_2017.bedroomcnt > 0)
-;
-Collapse
-''', url)
+;''', url)
     return zillow_data
 acquire_zillow()
 

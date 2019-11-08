@@ -24,6 +24,6 @@ Padraic Doran and Sean Oslin
 - Deleted unneeded and redundant attributes, new total 14
 - As the number of missing values was fairly small (no more than a few hundred), we decided to use linear regression to impute mising values for 'lotsizesquarefeet' and 'taxamount'
 - Again,as the number of missing values was fairly small, we decided to use simple imputer (set for median) to calculate missing values for 'calculatedfinishedsquarefeet', 'landtaxvaluedollarcnt', 'structuretaxvaluedollarcnt', 'taxvaluedollarcnt'
-- Deleted rows missing 'yearbuilt' as we could not think of a good method to impute year, new total 55,624
+- Deleted rows missing 'yearbuilt' as we could not think of a good method to impute year, new total 45,631
 - All data types at this point were int64 and float. Converted all but one float (logerror) to ints. 
-Outliers
+- Calculated outliers, using 4x the IQR as the upper and lower thresholds for defining outliers.  After this step, we eliminated all rows with logerror, lotsizesquarefeet, bathroomcnt, calculatedfinishedsquarefeet, calculatedfinishedsquarefeet, structuretaxvaluedollarcnt, taxvaluedollarcnt, and landtaxvaluedollarcnt upper outliers. The number of lower outliers were small, so we decided not to delete any rows, new total 38,500.
