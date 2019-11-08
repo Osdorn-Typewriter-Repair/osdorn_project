@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+DS.store
+.eny.py
+env.py
+__pycache__
