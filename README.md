@@ -8,7 +8,7 @@ Padraic Doran and Sean Oslin
 
 
 ### Data source and SQL query
-- All data originated with the Zillow database and svi_db (for county names).
+-  and svi_db (for county names).
 - Only data from 2017 were used. 
 - Only single-unit properties (almost entirely single family homes) were analyzed.
 - All properties had to have a minimum of one unit, one bathroom and one bedroom. 
@@ -27,3 +27,7 @@ Padraic Doran and Sean Oslin
 - Deleted rows missing 'yearbuilt' as we could not think of a good method to impute year, new total 45,631
 - All data types at this point were int64 and float. Converted all but one float (logerror) to ints. 
 - Calculated outliers, using 4x the IQR as the upper and lower thresholds for defining outliers.  After this step, we eliminated all rows with logerror, lotsizesquarefeet, bathroomcnt, calculatedfinishedsquarefeet, calculatedfinishedsquarefeet, structuretaxvaluedollarcnt, taxvaluedollarcnt, and landtaxvaluedollarcnt upper outliers. The number of lower outliers were small, so we decided not to delete any rows, new total 38,500.
+
+### Data exploration
+
+
