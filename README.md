@@ -1,30 +1,41 @@
-# Osdorn Typwriting Repair
+# Osdorn Typewriting Repair
 ## Analysis of Zillow log error data
 
 ### Goal 
 Improve our original estimate of the log error by using clustering methodologies.
 
+
 ### Team 
 Padraic Doran and Sean Oslin
 
+
 ### Included with Github
+- Jupyter notebook with calculations.
+- README with background on the project
+- Text files with functions for the 
 
 ### Data source and SQL query
 - Only data from 2017 were used. 
+
 - Only single-unit properties (almost entirely single family homes) were analyzed.
+
 - All properties had to have a minimum of one unit, one bathroom and one bedroom. 
+
 - If a property was bought more than once during a year, the query was limited to the latest transaction.
+
 - Records missing latitude and longitude were excluded because they are fundamental to the scope of the project. 
+
 - 55,720 records were imported into Python
+
 
 ### Data preparation
 - Started with 78 columns of data.
 
-- Deleted duplicate columns, total = 68
+- Deleted duplicate columns, new total = 68
 
 - Deleted attributes with less than 90% of cells filled, new total = 29
 
-- Deleted rows with less than 75% of cells filled, total unchanged
+- Deleted rows with less than 75% of cells filled, total columns unchanged
 
 - Deleted unneeded and redundant attributes, new total 14
 
@@ -40,11 +51,13 @@ Padraic Doran and Sean Oslin
 
 - Split data using train/test ratio of 70/30.
 
-- Encode 'bedroomcnt' and 'bathroom count' into 9 and 7 new variables, respectively. We contemplating grouping the higher numbers of beds and baths into variables indicating 5 or more. Because of time constraints we did not do this. We kept the original bed and bath variables for now. 
+- Encoded 'bedroomcnt' and 'bathroom count' into 9 and 7 new variables, respectively. We contemplating grouping the higher numbers of beds and baths into variables indicating 5 or more. Because of time constraints we did not do this. We kept the original bed and bath variables for now. 
 
 - Because of the nature of the data we considered both MinMax and Standard scalers. We settled on Standard as it is the most frequently used. Additionally, we chose to scale only the variables that with units of dollars and square feet.
 
 ### Data exploration
+- All random states used 123.
+
 - Our first set of clusters used K Means for the count of bedrooms and bathrooms.
 
 - The Elbow Method determined that the opitimal number clusters (k) was 5.
@@ -64,6 +77,17 @@ Padraic Doran and Sean Oslin
 
 - We ran multiple cominations of variables to graphical search for clusters. No obvious clusters appeared.
 
-- Histograms of all the variables yielded some interesting (but not unexpected) results. First, the most common configuration of single unit residence is three bedroom and two bathrooms. Additionally, the property values and square feet skew right (i.e. higher prices and larger lot/building sizes). Finally, the decades immediately following World War II were the heyday for home construction - tying with the expansion of the aerospace and entertainment industries and the Baby Boom. 
+- Histograms of all the variables yielded some interesting (but not unexpected) results. First, the most common configuration of single unit residence is three bedroom and two bathrooms. Additionally, the property values and square feet skewed right (i.e. higher prices and larger lot/building sizes). Finally, the decades immediately following World War II were the heyday for home construction - tying with the expansion of the aerospace and entertainment industries and the Baby Boom. 
 
 - Examining jointplots and correlations for select variables indicates that lots  have increased in size and have increased faster than the size of the residence. Also, while the number of number of bedrooms have increased over time, the number of bathrooms has increased faster. Finally, the value of the land is nearly perfectly correlated with the tax value (r = .95). The value of the structure on the land is almost inconsequential (r = .065). 
+
+- We weren't sure if we were doing the cluster analysis correctly, so we decided to rerun with different parameters to see if we could get different answers and gain more experience with clustering. Given the maxim of "Location, location, location," we decide to to focus on the geographic data. 
+
+- The new clusters did not appear to provide additional insight. Further, clusters do not seem to provide much insight without domain knowledge
+
+### Modeling
+- Did not do additional feature engineering. 
+
+- Besides the baseline, we ran a standard linear regression, decision tree regression and a lasso cross validation. The results were only a slight improvement over the baseline. 
+
+- We decided against applying our models to the test data because of the already poor performance of the models.
