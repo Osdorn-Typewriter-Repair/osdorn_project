@@ -16,6 +16,7 @@ Padraic Doran and Sean Oslin
 - Shapefile Folder with all requisite files for shapefle used.
 - CSV of query results from MYSQL.
 
+
 ### Data source and SQL query
 - Only data from 2017 were used. 
 
@@ -30,7 +31,7 @@ Padraic Doran and Sean Oslin
 - 55,720 records were imported into Python
 
 
-### Data preparation
+### Data preparation  (including definitions for unfamiliar or new variables)
 - Started with 78 columns of data.
 
 - Deleted duplicate columns, new total = 68
@@ -117,4 +118,5 @@ Padraic Doran and Sean Oslin
 
 - The technical details for each type of modeling conducted are located in the file. Random State = 123. All other features are considered to be default unless otherwise indicated in the notebook. 
 
-- 
+## Speaking notes
+https://docs.google.com/document/d/1GywUDAgSCJjQ59HGc6iBORFPyOgZfVX3OBepGl9saPM/edit?usp=sharing
