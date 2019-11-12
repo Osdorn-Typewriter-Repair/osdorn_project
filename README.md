@@ -12,7 +12,9 @@ Padraic Doran and Sean Oslin
 ### Included with Github
 - Jupyter notebook with calculations.
 - README with background on the project
-- Text files with functions for the 
+- Text files with functions for the various stages of the product.
+- Shapefile Folder with all requisite files for shapefle used.
+- CSV of query results from MYSQL.
 
 ### Data source and SQL query
 - Only data from 2017 were used. 
@@ -91,3 +93,28 @@ Padraic Doran and Sean Oslin
 - Besides the baseline, we ran a standard linear regression, decision tree regression and a lasso cross validation. The results were only a slight improvement over the baseline. 
 
 - We decided against applying our models to the test data because of the already poor performance of the models.
+
+### RUN IT BACK
+
+- We decided to see if we could apply some domain knowledge and conduct feature engineering and pre clustering clustering with locations by using bounding boxes.
+
+- The bounding boxes themselves are not real tight, so there are gaps where there otherwise should not be. This will be corrected in future versions of the study.
+
+- To run the Run It Back file, the user will need to install several package using Pip:
+                                Geopandas, Descartes, and Shapely
+
+- Addtionally, the shapefile is the streetmap taken from the United States Census Bureau website. I cannot gaurantee that a shapefile from another website will mesh as nicely as the one from the Census Bureau website. 
+
+- Keep all of the files found in the shapefile folder!!! Those files are necessary for the streetmap to function correctly.
+
+- The address used in the query for the shapefile is the absolute path where the file exists on the user's computer.
+
+- After over removing outliers in the baseline run, the decision was made to not remove outliers. This would help preserve the number of samples in each region, which could be heavily influenced by those outliers. Uniform scaling was performed instead. 
+
+- Maggie Guist can write some code. Like, damn.
+
+- The cluster created for both the baseline and the second iteration was based more on the notion of location that it was related to any features about the house. Posterity might say that this was a mistake, but with a evaluating the notion that location was a prime driver of housing prices, and therefore error, was influetial in cluster design. The next iteration of modeling will and should include identifying features about the actual houses themselves AS WELL AS the already designed clusters.
+
+- The technical details for each type of modeling conducted are located in the file. Random State = 123. All other features are considered to be default unless otherwise indicated in the notebook. 
+
+- 
